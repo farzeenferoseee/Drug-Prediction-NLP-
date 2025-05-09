@@ -6,13 +6,16 @@ model = joblib.load("svm_model.pkl")
 vectorizer = joblib.load("tfidf_vectorizer.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
 
-#delete later
-label_map = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
-st.write("Label Map:", label_map)
-
 # Streamlit UI
 st.title("Disease Prediction from Drug Review")
 st.write("Enter a drug review (symptoms, experiences, etc.), and we'll predict the disease.")
+
+st.markdown("""
+**Currently, prediction is available for the following conditions:**
+- Depression  
+- Diabetes, Type 2  
+- High Blood Pressure
+""")
 
 #CSS for custom UI
 st.markdown("""
