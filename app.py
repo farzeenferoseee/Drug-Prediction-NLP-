@@ -67,6 +67,6 @@ if st.button("Predict Disease"):
             class_probs = dict(zip(class_labels, probs[0]))
             st.markdown("### 🔍 Prediction Probabilities")
             for label, prob in class_probs.items():
-            st.markdown(f"- **{label}**: {prob:.2f}")
+                st.markdown(f"- **{label}**: {prob:.2f}")
         
         
