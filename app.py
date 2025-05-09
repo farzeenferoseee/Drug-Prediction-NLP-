@@ -51,3 +51,7 @@ if st.button("Predict Disease"):
         pred_label = label_encoder.inverse_transform(prediction)[0]
         # Display result
         st.success(f"🧬 Predicted Disease: **{pred_label}**")
+
+if hasattr(model, "predict_proba"):
+    probs = model.predict_proba(input_vectorized)
+    st.write("Prediction Probabilities:", probs)
