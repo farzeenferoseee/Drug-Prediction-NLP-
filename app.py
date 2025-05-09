@@ -55,18 +55,18 @@ if st.button("Predict Disease"):
         #Display Probabilities
         st.write("Checking if model supports predict_proba...")
         if hasattr(model, "predict_proba"):
-        st.write("Yes, model has predict_proba")
-        probs = model.predict_proba(input_vectorized)
-        st.write(f"Raw probs: {probs}")
-        st.write("Model classes:", model.classes_)
-        st.write("Probabilities array:", probs)
+            st.write("Yes, model has predict_proba")
+            probs = model.predict_proba(input_vectorized)
+            st.write(f"Raw probs: {probs}")
+            st.write("Model classes:", model.classes_)
+            st.write("Probabilities array:", probs)
 
-        class_labels = label_encoder.inverse_transform(model.classes_)
-        st.write("Class labels:", class_labels)
+            class_labels = label_encoder.inverse_transform(model.classes_)
+            st.write("Class labels:", class_labels)
 
-        class_probs = dict(zip(class_labels, probs[0]))
-        st.markdown("### 🔍 Prediction Probabilities")
-        for label, prob in class_probs.items():
+            class_probs = dict(zip(class_labels, probs[0]))
+            st.markdown("### 🔍 Prediction Probabilities")
+            for label, prob in class_probs.items():
             st.markdown(f"- **{label}**: {prob:.2f}")
         
         
