@@ -1,23 +1,14 @@
 import streamlit as st
 import joblib
 
-# Save the best model
-joblib.dump(svm_model, "svm_model.pkl")
-
-# Save the vectorizer
-joblib.dump(tfidf, 'tfidf_vectorizer.pkl')
-
-#Save the label encoder
-joblib.dump(le, "label_encoder.pkl")
-
-#delete later
-label_map = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
-st.write("Label Map:", label_map)
-
 #Load pickled files
 model = joblib.load("svm_model.pkl")
 vectorizer = joblib.load("tfidf_vectorizer.pkl")
 label_encoder = joblib.load("label_encoder.pkl")
+
+#delete later
+label_map = dict(zip(label_encoder.classes_, label_encoder.transform(label_encoder.classes_)))
+st.write("Label Map:", label_map)
 
 # Streamlit UI
 st.title("Disease Prediction from Drug Review")
