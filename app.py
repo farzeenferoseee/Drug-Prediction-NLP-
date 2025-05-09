@@ -47,12 +47,4 @@ if st.button("Predict Disease"):
         prediction = model.predict(input_vectorized)
         pred_label = label_encoder.inverse_transform(prediction)[0]
         # Display result
-        st.success(f"🧬 Predicted Disease: **{prediction}**")
-
-        st.markdown(f"""
-            ### 📝 Your input:
-            `{user_input}`
-
-            ### 🧬 Your result:
-            **{pred_label}**
-        """)
+        st.success(f"🧬 Predicted Disease: **{pred_label}**")
