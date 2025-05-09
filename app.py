@@ -54,4 +54,7 @@ if st.button("Predict Disease"):
 
 if hasattr(model, "predict_proba"):
     probs = model.predict_proba(input_vectorized)
-    st.write("Prediction Probabilities:", probs)
+    class_probs = dict(zip(label_encoder.inverse_transform(model.classes_), probs[0]))
+    st.write("Prediction Probabilities:")
+    for label, prob in class_probs.items():
+        st.write(f"• {label}: {prob:.2f}")
