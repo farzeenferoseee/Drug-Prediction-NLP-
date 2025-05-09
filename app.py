@@ -44,7 +44,7 @@ if st.button("Predict Disease"):
         st.warning("Please enter some text.")
     else:
         input_vectorized = vectorizer.transform([user_input])
-        prediction = model.predict([input_vectorizer])
+        prediction = model.predict([input_vectorized])
         pred_label = label_encoder.inverse_transform(prediction)[0]
         # Display result
         st.success(f"🧬 Predicted Disease: **{prediction}**")
